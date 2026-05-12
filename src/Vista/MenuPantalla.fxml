@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.effect.DropShadow?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="500.0" spacing="20" styleClass="bg-menu" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.MenuPantalla">
+
+    <MenuBar style="-fx-background-color: rgba(255,255,255,0.8);">
+        <Menu text="Juego">
+            <MenuItem fx:id="newGame" onAction="#handleNewGame" text="Nueva Partida" />
+            <MenuItem fx:id="saveGame" onAction="#handleSaveGame" text="Guardar" />
+            <MenuItem fx:id="loadGame" onAction="#handleLoadGame" text="Cargar" />
+            <MenuItem fx:id="quitGame" onAction="#handleQuitGame" text="Salir" />
+        </Menu>
+    </MenuBar>
+
+    <VBox alignment="CENTER" spacing="5" VBox.vgrow="ALWAYS">
+        <Text styleClass="text-title" text="🐧 Juego Pingüinos" />
+        
+        
+        <VBox alignment="CENTER" maxWidth="320" spacing="15" styleClass="glass-panel">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+
+            <Text styleClass="text-normal" text="Inicia sesión para jugar:" />
+
+            <TextField fx:id="userField" promptText="Usuario" styleClass="text-field-premium" />
+
+            <PasswordField fx:id="passField" promptText="Contraseña" styleClass="text-field-premium" />
+
+            <Button fx:id="loginButton" maxWidth="Infinity" onAction="#handleLogin" styleClass="btn-primary" text="Iniciar Sesión" />
+
+            <Button fx:id="registerButton" maxWidth="Infinity" onAction="#handleRegister" styleClass="btn-secondary" text="Registrarse" />
+            
+            <Button text="Cerrar Juego" onAction="#handleQuitGame" styleClass="btn-danger"/>
+
+        </VBox>
+    </VBox>
+</VBox>

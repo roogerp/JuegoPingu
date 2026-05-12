@@ -1,0 +1,154 @@
+/* Estilos Premium para Juego de Pingüinos */
+
+.root {
+    -fx-font-family: "Segoe UI", "Inter", "Roboto", sans-serif;
+}
+
+/* Fondos */
+.bg-menu {
+    -fx-background-color: linear-gradient(to bottom right, #0F2027, #203A43, #2C5364);
+}
+
+.bg-juego {
+    -fx-background-color: linear-gradient(to bottom, #141e30, #243b55);
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 5);
+}
+
+/* Textos */
+.text-title {
+    -fx-fill: white;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 2);
+}
+
+.text-subtitle {
+    -fx-fill: #a0c4ff;
+    -fx-font-size: 16px;
+}
+
+.text-normal {
+    -fx-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Campos de texto */
+.text-field-premium {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 8;
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-border-color: transparent;
+}
+.text-field-premium:focused {
+    -fx-border-color: #4facfe;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+}
+
+/* Botones */
+.btn-primary {
+    -fx-background-color: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
+}
+.btn-primary:pressed {
+    -fx-translate-y: 2;
+}
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4facfe;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-border-color: #4facfe;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover {
+    -fx-background-color: rgba(79, 172, 254, 0.1);
+}
+
+.btn-danger {
+    -fx-background-color: linear-gradient(to right, #ff416c, #ff4b2b);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 15;
+    -fx-cursor: hand;
+}
+.btn-danger:hover {
+    -fx-opacity: 0.9;
+}
+
+/* Tablero */
+.tablero-grid {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-color: rgba(255, 255, 255, 0.5);
+    -fx-border-width: 3;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.casilla {
+    -fx-border-color: rgba(255, 255, 255, 0.35);
+    -fx-border-width: 2;
+}
+
+.numero-casilla {
+    -fx-fill: rgba(255, 255, 255, 0.6);
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Tipos de Casillas */
+.casilla-normal {
+    -fx-background-color: rgba(240, 248, 255, 0.7); /* Nieve clara */
+}
+.casilla-oso {
+    -fx-background-color: rgba(231, 76, 60, 0.7); /* Rojo peligro */
+}
+.casilla-agujero {
+    -fx-background-color: rgba(52, 73, 94, 0.9); /* Oscuro profundo */
+}
+.casilla-trineo {
+    -fx-background-color: rgba(46, 204, 113, 0.7); /* Verde avance */
+}
+.casilla-interrogante {
+    -fx-background-color: rgba(155, 89, 182, 0.7); /* Morado misterio */
+}
+.casilla-fragil {
+    -fx-background-color: rgba(133, 193, 233, 0.5); /* Azul hielo muy claro */
+}
+
+/* Inventario UI */
+.inventario-item {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+}
+
+.text-evento {
+    -fx-fill: #f1c40f;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}

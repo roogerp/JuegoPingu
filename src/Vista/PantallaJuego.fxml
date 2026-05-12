@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com"
+            fx:controller="Vista.PantallaJuego"
+            prefWidth="1300" prefHeight="900"
+            styleClass="bg-juego" stylesheets="@estilos.css">
+
+    <top>
+        <MenuBar style="-fx-background-color: rgba(255,255,255,0.8);">
+            <Menu text="Juego">
+                <MenuItem fx:id="newGame" text="Nueva Partida" onAction="#handleNewGame"/>
+                <MenuItem fx:id="saveGame" text="Guardar" onAction="#handleSaveGame"/>
+                <MenuItem fx:id="loadGame" text="Cargar" onAction="#handleLoadGame"/>
+                <MenuItem fx:id="quitGame" text="Salir" onAction="#handleQuitGame"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+            <Text text="🐧 Tablero de Juego" styleClass="text-title"/>
+            
+
+            <GridPane fx:id="tablero" alignment="CENTER" styleClass="tablero-grid">
+    <columnConstraints>
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+    <ColumnConstraints minWidth="90" prefWidth="90" maxWidth="90" halignment="CENTER" />
+	</columnConstraints>
+    <rowConstraints>
+        
+        <RowConstraints minHeight="90" prefHeight="90" maxHeight="90" valignment="CENTER" />
+        <RowConstraints minHeight="90" prefHeight="90" maxHeight="90" valignment="CENTER" />
+        <RowConstraints minHeight="90" prefHeight="90" maxHeight="90" valignment="CENTER" />
+        <RowConstraints minHeight="90" prefHeight="90" maxHeight="90" valignment="CENTER" />
+        <RowConstraints minHeight="90" prefHeight="90" maxHeight="90" valignment="CENTER" />
+    </rowConstraints>
+
+    
+	<StackPane GridPane.rowIndex="0" GridPane.columnIndex="0">
+    <Text text="0" style="-fx-font-size: 11px; -fx-fill: white;" 
+          StackPane.alignment="TOP_LEFT" translateX="4" translateY="2"/>
+	</StackPane>
+  </GridPane>
+
+            
+		<VBox alignment="CENTER" spacing="10" styleClass="glass-panel" prefHeight="250"> 
+    		<padding><Insets top="15" bottom="15" left="30" right="30"/></padding>
+    
+    		<Text fx:id="dadoResultText" text="Tira el dado para empezar" styleClass="text-normal" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+    
+    		<Text text="--- Registro de Movimientos ---" style="-fx-fill: #888; -fx-font-size: 12px;"/>
+
+    		
+    		<javafx.scene.control.ScrollPane fitToWidth="true" prefHeight="180" 
+        		style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: rgba(255,255,255,0.1);">
+        		<content>
+            		<Text fx:id="eventos" text="Esperando inicio..." 
+                  		styleClass="text-evento" 
+                  		wrappingWidth="600" 
+                  		textAlignment="LEFT" />
+        		</content>
+    		</javafx.scene.control.ScrollPane>
+		</VBox>
+
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="20" alignment="TOP_CENTER" prefWidth="280" styleClass="glass-panel">
+            <padding><Insets top="30" bottom="30" left="20" right="20"/></padding>
+            <BorderPane.margin><Insets top="20" bottom="20" right="20"/></BorderPane.margin>
+
+            <Text text="🎲 Acciones" styleClass="text-title" style="-fx-font-size: 22px;"/>
+            <Button fx:id="dado" text="Tirar Dado" onAction="#handleDado" maxWidth="Infinity" styleClass="btn-primary" style="-fx-font-size: 16px;"/>
+            
+            <Separator prefWidth="200" style="-fx-opacity: 0.3; -fx-padding: 10 0;"/>
+            
+            <Text text="🎒 Inventario" styleClass="text-title" style="-fx-font-size: 20px;"/>
+            
+            <VBox spacing="15" alignment="CENTER_LEFT">
+                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="inventario-item">
+                    <Button fx:id="rapido" text="Usar" onAction="#handleRapido" styleClass="btn-secondary"/>
+                    <Text fx:id="rapido_t" text="Dado Rápido: 0/3" styleClass="text-normal"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="inventario-item">
+                    <Button fx:id="lento" text="Usar" onAction="#handleLento" styleClass="btn-secondary"/>
+                    <Text fx:id="lento_t" text="Dado Lento: 0/3" styleClass="text-normal"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="inventario-item">
+                    <Button fx:id="peces" text="Usar" onAction="#handlePeces" styleClass="btn-secondary"/>
+                    <Text fx:id="peces_t" text="Peces: 0/2" styleClass="text-normal"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="inventario-item">
+                    <Button fx:id="nieve" text="Usar" onAction="#handleNieve" styleClass="btn-secondary"/>
+                    <Text fx:id="nieve_t" text="Bolas Nieve: 0/6" styleClass="text-normal"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </right>
+</BorderPane>
